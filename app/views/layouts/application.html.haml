@@ -24,7 +24,8 @@
         = fb_login_and_redirect('/', :perms => 'email,publish_stream')
 
     %section#main_content.white
-      = yield if logged_in?
+      - if logged_in?
+        = yield
 
     %section#search.turquoise
       .header
