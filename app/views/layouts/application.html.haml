@@ -20,11 +20,12 @@
 
     %login
       = fb_connect_async_js
+      = current_facebook_user.inspect
       - unless logged_in?
         = fb_login_and_redirect('/', :perms => 'email,publish_stream')
 
     %section#main_content.white
-      - if logged_in?
+      - if !logged_in?
         = yield
 
     %section#search.turquoise
