@@ -17,22 +17,9 @@ class ApplicationController < ActionController::Base
       rescue Exception => ex
         log_out
       end
-
-      # test_post
+    else
+      log_out
     end
-  end
-
-  def test_post
-    # post = Mogli::Post.new
-    # post.message = "Just a test message from API"
-
-    client = current_facebook_client
-
-    # me = Mogli::User.find("me", client)
-    # friend = current_facebook_user.friends[0]
-    friend_id = 100000472515345 # Zabka
-
-    # client.post("#{friend_id}/feed", nil, :message => "Just a test message from API")
   end
 
   def logged_in?
