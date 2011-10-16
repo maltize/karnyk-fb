@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    render :text => ''
   end
 
   def create
