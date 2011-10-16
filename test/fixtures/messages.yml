@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  fb_user_id: 10
+  target_fb_user_id: 11
+  body: MyText
+  status: 1
+
+two:
+  id: 2
+  fb_user_id: 11
+  target_fb_user_id: 10
+  body: MyText2
+  status: 1

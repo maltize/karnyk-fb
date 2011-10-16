@@ -1,0 +1,58 @@
+!!! 5
+%html{:lang => "pl"}
+  %head
+    %meta{ :charset => "utf-8"}
+    %title Karny Kutas | wyślij Karnego Kutasa znajomym!
+    = render :partial => 'layouts/stylesheets'
+    = render :partial => 'layouts/javascripts'
+
+    = csrf_meta_tag
+
+  %body
+    %header.clearfix
+      #logo
+        = link_to image_tag('/images/logo.gif', :size => '225x138', :alt => 'Karny Kutas', :title => 'Karny Kutas', :border => '0'), root_path
+      #teaser
+        %ul
+          %li Znajomy Ci podpadł?
+          %li Chuck Noris nie sprostał zadaniu?
+          %li Karny Kutas dopomoże!
+
+    %login
+      = fb_connect_async_js
+      - unless logged_in?
+        = fb_login_and_redirect('/', :perms => 'email,publish_stream')
+
+    %section#main_content.white
+      = yield
+
+    %section#search.turquoise
+      .header
+        %h2 Sprawdź swoje Karne Kutasy
+    
+    %footer.shadow
+      %ul
+        %li= link_to "Regulamin", rules_path
+        %li= link_to "Polityka prywatności", privacy_path
+        %li= mail_to "info@karnykutas.com", "Kontakt", :encode => "javascript"
+
+    %section.blank
+      %h2
+        brought to you by
+        %span
+          = link_to '@bwidlak', 'http://twitter.com/#!/bwidlak'
+        &
+        %span
+          = link_to '@maltize', 'http://twitter.com/#!/maltize'
+        version 1.0
+
+    #flash_message
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}" unless (name.to_sym == :recaptcha_error) || (name.to_sym == :ajax)
+
+      - if flash[:ajax]
+        #ajax_status
+          = flash[:ajax]
+      - else
+        #ajax_status{:style => "display:none"}
+    

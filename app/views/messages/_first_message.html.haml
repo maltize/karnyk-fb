@@ -1,0 +1,9 @@
+.message.clearfix
+  .label
+    %span.author
+      = first_message.name
+    %br/
+    %span.date= first_message.created_at.strftime("%Y-%H-%m %H:%M")
+  .body
+    .arrow= image_tag '/images/arrow.gif', :size => '24x25'
+    =raw sexy(first_message.body)
