@@ -13,9 +13,10 @@ gem 'haml', '3.0.25'
 
 gem 'simple_form', '1.3.0'
 
-gem 'facebooker2'
+gem 'facebooker2', '0.0.11'
+gem 'mogli', '0.0.28'
 
-gem 'json'
+gem 'json', '1.5.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
