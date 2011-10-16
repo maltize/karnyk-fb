@@ -22,6 +22,9 @@
       = fb_connect_async_js
       = current_facebook_user.inspect
       = logged_in?
+      = root_url
+      = rules_url
+      = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=#{root_url}"
       - unless logged_in?
         = fb_login_and_redirect('/', :perms => 'email,publish_stream')
 
