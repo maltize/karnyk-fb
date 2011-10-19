@@ -1,32 +1,48 @@
 require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
-  setup do
+
+  def setup
+    @friend = Struct::FacebookFriend.new(30, "Kano")
+
+    Message.any_instance.stubs(:client).returns(true)
+    Message.any_instance.stubs(:publish_to_fb).returns(true)
+    Message.any_instance.stubs(:fb_user).returns(Struct::FacebookUser.new(20, 'Sub-Zero', [@friend]))
+
+    @controller.stubs(:logged_in?).returns(true)
+    @controller.stubs(:log_out).returns(nil)
+    @controller.stubs(:current_facebook_user).returns(Struct::FacebookUser.new(10, 'Scorpion', [@friend]))
+
     @message = messages(:one)
   end
 
-  test "should get new" do
+  def test_new
     get :new
     assert_response :success
   end
 
-  test "should create message" do
+  def test_create_should_create_message
     assert_difference('Message.count') do
       post :create, :message => @message.attributes
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to new_message_path
   end
 
-  test "should show message" do
-    get :show, :permalink => @message.permalink
+  def test_show_should_show_messages
+    get :show
+
     assert_response :success
+    assert_template 'show'
   end
 
-  test "should find messages" do
-    get :search, :query => messages(:one).target_email
+  def test_show_should_render_new_if_no_messages
+    @controller.stubs(:current_facebook_user).returns(Struct::FacebookUser.new(12, "Noob", []))
+
+    get :show
+
     assert_response :success
-    assert assigns(:messages)
+    assert_template 'new'
   end
 
 end

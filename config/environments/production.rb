@@ -56,10 +56,4 @@ KarnyKutas::Application.configure do
     :password => "90afoots"
   }
 
-  # ActionMailer::Base.smtp_settings = {
-  #   :address => 'jrc.one.pl',
-  #   :port => 25,
-  #   :domain => 'karnykutas.com'
-  # }
-
 end

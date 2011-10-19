@@ -11,7 +11,7 @@
   %body
     %header.clearfix
       #logo
-        = link_to image_tag('/images/logo.gif', :size => '225x138', :alt => 'Karny Kutas', :title => 'Karny Kutas', :border => '0'), root_path
+        = link_to image_tag('/images/logo.gif', :size => '225x138', :alt => 'Karny Kutas', :title => 'Karny Kutas', :border => '0'), new_message_path
       #teaser
         %ul
           %li Znajomy Ci podpadł?
@@ -20,13 +20,8 @@
 
     %login
       = fb_connect_async_js
-      = current_facebook_user.inspect
-      = logged_in?
-      = root_url
-      = rules_url
-      = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=#{root_url}"
-      - unless logged_in?
-        = fb_login_and_redirect('/', :perms => 'email,publish_stream')
+      / - unless logged_in?
+      /   = fb_login_and_redirect('/', :perms => 'email,publish_stream')
 
     %section#main_content.white
       - if logged_in?
@@ -34,7 +29,7 @@
 
     %section#search.turquoise
       .header
-        %h2 Sprawdź swoje Karne Kutasy
+        %h2= link_to "Sprawdź swoje Karne Kutasy", message_path
     
     %footer.shadow
       %ul

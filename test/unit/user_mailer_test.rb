@@ -2,15 +2,9 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
 
-  def test_notify
-    message = messages(:one)
-
-    email = UserMailer.notify(message).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-
-    assert_equal [UserMailer::SYSTEM_EMAIL], email.from
-    assert_equal [message.target_email], email.to
-    assert_match /#{message.id}/, email.encoded
+  def setup
+    Message.any_instance.stubs(:fb_user).returns(Struct::FacebookUser.new(20, 'Sub-Zero'))
+    Message.any_instance.stubs(:target_fb_user).returns(Struct::FacebookUser.new(20, 'Sub-Zero'))
   end
 
   def test_notify_copy
@@ -20,7 +14,6 @@ class UserMailerTest < ActionMailer::TestCase
     assert !ActionMailer::Base.deliveries.empty?
 
     assert_equal [UserMailer::SYSTEM_EMAIL], email.from
-    assert_equal ["info@karnykutas.com"], email.to
     assert_match /#{message.id}/, email.encoded
   end
 

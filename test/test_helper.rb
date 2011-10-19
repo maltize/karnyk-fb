@@ -11,3 +11,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+Struct.new "FacebookUser", :id, :name, :friends
+Struct.new "FacebookFriend", :id, :name
+
+require 'mocha'

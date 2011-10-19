@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :ensure_authenticated
 
-  helper_method :logged_in?
+  helper_method :logged_in?, :app_id
 
   def ensure_authenticated
     if current_facebook_user
@@ -34,6 +34,17 @@ private
 
   def log_out
     session[:logged_in] = nil
+
+    redirect_to authentication_url
   end
+
+  def app_id
+    @app_id ||= Facebooker2.load_facebooker_yaml["app_id"]
+  end
+
+  def authentication_url
+    "https://www.facebook.com/dialog/oauth?client_id=#{app_id}&redirect_uri=#{root_url}&scope=email,publish_stream"
+  end
+
 
 end

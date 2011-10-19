@@ -3,7 +3,7 @@
 
   %span
     Odbiorca:
-  = f.select :target_fb_user_id, [["wybierz", 0]] + current_facebook_user.friends.map{|p| [ p.name, p.id ] }.sort
+  = f.select :target_fb_user_id, [["wybierz", 0]] + @friends.map{|p| [ p.name, p.id ] }.sort
 
   = f.input :body, :label => 'Karnego Kutasa wręczam za:'
 

@@ -1,13 +1,19 @@
 # encoding: utf-8
 class MessagesController < ApplicationController
 
+  before_filter :load_friends, :only => [:show, :new]
+
   def show
-    @message = Message.where(:permalink => params[:permalink]).first
+    @message = Message.where(:target_fb_user_id => current_facebook_user.id).first
     if @message
-      @messages = Message.where(:target_email => @message.target_email).where(['id != ?', @message.id]).order("id DESC").paginate(
-        :page => params[:page], :per_page => 20
+      @messages = Message.where(:target_fb_user_id => current_facebook_user.id).where(['id != ?', @message.id]).order("id DESC").paginate(
+        :page => params[:page], :per_page => 5
       )
       @messages_count = @messages.count + 1
+    else
+      @message = Message.new
+      flash[:error] = "Nie otrzymałeś jeszcze żadnego Karnego Kutasa."
+      render :action => "new"
     end
   end
 
@@ -21,26 +27,19 @@ class MessagesController < ApplicationController
     @message.client = current_facebook_client
 
     if @message.save
-      # UserMailer.notify(@message).deliver
       # UserMailer.notify_copy(@message).deliver
       flash[:notice] = "Karny Kutas został poprawnie wysłany."
-      redirect_to root_path
+      redirect_to new_message_path
     else
       flash[:error] = "Karny kutas nie wysłany! popraw formularz."
       render :action => "new"
     end
   end
 
-  def search
-    @message = Message.where(:target_email => params[:query].strip).first
-    if @message
-      @messages = Message.where(:target_email => params[:query].strip).order("id DESC").paginate(:page => params[:page], :per_page => 20)
-      @messages_count = @messages.count
-    else
-      @message = Message.new
-      flash[:error] = "Podany email nie otrzymał jeszcze żadnego Karnego Kutasa."
-      render :action => "new"
-    end
+private
+
+  def load_friends
+    @friends = current_facebook_user.friends
   end
 
 end

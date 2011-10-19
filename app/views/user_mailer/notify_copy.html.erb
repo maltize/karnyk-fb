@@ -6,27 +6,15 @@
   <body>
     <p>
       <b>Nadawca</b>
-      <%= @message.name %>
+      <%= @message.fb_user.name %>
     </p>
     <p>
       <b>Odbiorca</b>
-      <%= @message.target_name %>
-    </p>
-    <p>
-      <b>Email odbiorcy</b>
-      <%= @message.target_email %>
+      <%= @message.target_fb_user.name %>
     </p>
     <p>
       <b>Za co?</b>
       <%= @message.body %>
-    </p>
-    <p>
-      <b> Ip nadawcy<b>
-      <%= @message.ip %>
-    </p>
-    <p>
-      <b>Sprawdź tutaj:</b>
-      <%= link_to message_url(@message.permalink, :host => 'karnykutas.com'), message_url(@message.permalink, :host => 'karnykutas.com') %>
     </p>
   </body>
 </html>

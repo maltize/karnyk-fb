@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7'
+
 gem 'rails', '3.0.1'
 
 # Bundle edge Rails instead:
@@ -36,6 +38,10 @@ gem 'json', '1.5.3'
 group :development do
   gem 'mongrel', '1.1.5'
   gem 'heroku'
+end
+
+group :test do
+  gem 'mocha', '0.9.8'
 end
 
 # Bundle gems for the local environment. Make sure to
