@@ -34,15 +34,15 @@
         %li= link_to "Polityka prywatności", privacy_path
         %li= mail_to "info@karnykutas.com", "Kontakt", :encode => "javascript"
 
-    %section.blank
-      %h2
-        brought to you by
-        %span
-          = link_to '@bwidlak', 'http://twitter.com/#!/bwidlak'
-        &
-        %span
-          = link_to '@maltize', 'http://twitter.com/#!/maltize'
-        version 1.0
+    / %section.blank
+    /   %h2
+    /     brought to you by
+    /     %span
+    /       = link_to '@bwidlak', 'http://twitter.com/#!/bwidlak'
+    /     &
+    /     %span
+    /       = link_to '@maltize', 'http://twitter.com/#!/maltize'
+    /     version 1.0
 
     #flash_message
       - flash.each do |name, msg|
