@@ -43,7 +43,7 @@ private
   end
 
   def authentication_url
-    "https://www.facebook.com/dialog/oauth?client_id=#{app_id}&redirect_uri=#{root_url}&scope=email,publish_stream"
+    "https://www.facebook.com/dialog/oauth?client_id=#{app_id}&redirect_uri=#{Message.app_url}&scope=email,publish_stream"
   end
 
 
