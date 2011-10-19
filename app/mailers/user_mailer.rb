@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
 
   def notify_copy(message)
     @message = message
-    mail(:from => SYSTEM_EMAIL, :to => SYSTEM_EMAIL, :subject => "via Facebook #{message.id}")
+    mail(:from => SYSTEM_EMAIL, :to => SYSTEM_EMAIL, :subject => "Facebook KK ##{message.id}")
   end
 
   def attach_logo
