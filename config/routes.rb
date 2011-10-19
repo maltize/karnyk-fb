@@ -11,10 +11,11 @@ KarnyKutas::Application.routes.draw do
 
   # root :to => "messages#show"
 
+  root :to => "messages#login"
 
-  resources :oauth
-  root :to => "oauth#index"
-  match 'oauth_callback' => "oauth#create"
+  # resources :oauth
+  # root :to => "oauth#index"
+  # match 'oauth_callback' => "oauth#create"
 
 
 end

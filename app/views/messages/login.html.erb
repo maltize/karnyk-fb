@@ -1,9 +1,13 @@
 DUPKA
 
-<%= fb_login_and_redirect root_path, :perms=>"email,publish_stream" %>
+<% if logged_in? %>
+  <%= current_facebook_user.name %>
+<% else %>
 
 <%= javascript_tag do %>
-  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=&quot;/&quot;&scope=publish_stream";
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=<%= CGI::escape("http://karnyk-fp.heroku.com/karny/nowy") %>&scope=publish_stream";
+
+<% end %>
 <% end %>
 
 DUPA
