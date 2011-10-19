@@ -1,7 +1,7 @@
 # encoding: utf-8
 class MessagesController < ApplicationController
 
-  # before_filter :load_friends, :only => [:show, :new]
+  before_filter :load_friends, :only => [:show, :new]
 
   def login
   end
@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
     @message.client = current_facebook_client
 
     if @message.save
-      # UserMailer.notify_copy(@message).deliver
+      UserMailer.notify_copy(@message).deliver
       flash[:notice] = "Karny Kutas został poprawnie wysłany."
       redirect_to new_message_path
     else

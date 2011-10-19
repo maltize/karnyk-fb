@@ -9,10 +9,6 @@ class Message < ActiveRecord::Base
 
   after_create :publish_to_fb
 
-  def self.app_url
-    "http://apps.facebook.com/karny-kutas"
-  end
-
   def fb_user
     Mogli::User.find(fb_user_id)
   end
@@ -24,14 +20,14 @@ class Message < ActiveRecord::Base
 private
 
   def publish_to_fb
-    message = "#{fb_user.name} wysłał Ci Karnego K. Sprawdź tutaj #{Message.app_url}"
+    message = "#{fb_user.name} wysłał Ci Karnego K. Sprawdź tutaj #{Settings.app_url}"
 
     # 100000707733190 maciek
-    # http://graph.facebook.com/100000707733190/picture
-    # <%= fb_profile_pic(user.fb_user_uid, {:size => 'square' }) %>
-
     # use target_fb_user_id
-    client.post("#{target_fb_user_id}/feed", nil, :message => message)
+    client.post("#{100000707733190}/feed", nil, :message => message)
   end
+
+  # http://graph.facebook.com/100000707733190/picture
+  # <%= fb_profile_pic(user.fb_user_uid, {:size => 'square' }) %>
 
 end

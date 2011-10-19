@@ -4,14 +4,17 @@ class MessagesControllerTest < ActionController::TestCase
 
   def setup
     @friend = Struct::FacebookFriend.new(30, "Kano")
+    @user = Struct::FacebookUser.new(10, 'Scorpion', [@friend])
+    @user2 = Struct::FacebookUser.new(20, 'Sub-Zero', [@friend])
 
     Message.any_instance.stubs(:client).returns(true)
     Message.any_instance.stubs(:publish_to_fb).returns(true)
-    Message.any_instance.stubs(:fb_user).returns(Struct::FacebookUser.new(20, 'Sub-Zero', [@friend]))
+    Message.any_instance.stubs(:fb_user).returns(@user2)
+    Message.any_instance.stubs(:target_fb_user).returns(@user)
 
     @controller.stubs(:logged_in?).returns(true)
     @controller.stubs(:log_out).returns(nil)
-    @controller.stubs(:current_facebook_user).returns(Struct::FacebookUser.new(10, 'Scorpion', [@friend]))
+    @controller.stubs(:current_facebook_user).returns(@user)
 
     @message = messages(:one)
   end
