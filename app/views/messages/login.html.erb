@@ -5,7 +5,7 @@ DUPKA
 <% else %>
 
 <%= javascript_tag do %>
-  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=<%= CGI::escape("http://karnyk-fp.heroku.com/karny/nowy") %>&scope=publish_stream";
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=<%= CGI::escape("http://apps.facebook.com/karny-kutas") %>&scope=publish_stream";
 
 <% end %>
 <% end %>
