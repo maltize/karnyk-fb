@@ -20,7 +20,7 @@ body {
   color: white;
   background-color: #309ec1;
   width: 274px;
-  padding: 14px;
+  padding: 10px;
   margin-left: 14px;
   float: right;
 }
@@ -28,7 +28,7 @@ body {
 #teaser ul li,
 #search ul li,
 #main_content ul li {
-  font-size: 1.8em;
+  font-size: 1.3em;
   line-height:1em;
   padding: 0px;
 }
@@ -41,7 +41,7 @@ h1 {
   color: #f36b59;
   margin: 0 0 14px 0;
   padding: 0;
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 
 h2 {
@@ -65,7 +65,7 @@ section.blank p {
   text-shadow: none;
   background: none;
   text-shadow: 1px 1px 0px #b35044;
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
   display: block;
   text-align: right;
@@ -92,7 +92,7 @@ section.blank h2 span a:hover {
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 h4 {
@@ -123,7 +123,7 @@ a:hover {
 }
 
 #main_content h1 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #search h1 {

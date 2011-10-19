@@ -1,25 +1,25 @@
 .first {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .message {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
 }
 
 .account {
-  font-size: 30px;
+  font-size: 20px;
   display: inline;
 }
 
 .first .header h2 {
-  font-size: 80px;
-  padding: 10px 24px;
+  font-size: 60px;
+  padding: 8px 16px;
 }
 
 .header h2 {
   margin-left: -30px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .first .label,
@@ -55,8 +55,8 @@
 }
 
 .first .body {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .karny_count {
