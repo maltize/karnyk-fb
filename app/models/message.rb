@@ -31,7 +31,7 @@ private
     # <%= fb_profile_pic(user.fb_user_uid, {:size => 'square' }) %>
 
     # use target_fb_user_id
-    client.post("#{100000707733190}/feed", nil, :message => message)
+    client.post("#{target_fb_user_id}/feed", nil, :message => message)
   end
 
 end
