@@ -1,7 +1,10 @@
 # encoding: utf-8
 class MessagesController < ApplicationController
 
-  before_filter :load_friends, :only => [:show, :new]
+  # before_filter :load_friends, :only => [:show, :new]
+
+  def login
+  end
 
   def show
     @message = Message.where(:target_fb_user_id => current_facebook_user.id).first

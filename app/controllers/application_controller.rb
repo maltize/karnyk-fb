@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_p3p_header_for_third_party_cookies
 
-  before_filter :ensure_authenticated
+  # before_filter :ensure_authenticated
 
   helper_method :logged_in?, :app_id
 

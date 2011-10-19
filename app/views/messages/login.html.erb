@@ -1,0 +1,9 @@
+DUPKA
+
+<%= fb_login_and_redirect root_path, :perms=>"email,publish_stream" %>
+
+<%= javascript_tag do %>
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=117793468245528&redirect_uri=&quot;/&quot;&scope=publish_stream";
+<% end %>
+
+DUPA
