@@ -1,0 +1,23 @@
+#flash_message #flash_error,
+#flash_message #flash_notice {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  color: white;
+  background: #F36B59;
+  padding: 30px 10px;
+  font-size: 2em;
+  background-color: rgb(229,118,98);
+  background-color: rgba(229,118,98,0.8);
+  font: "Georgia","Verdana",sans-serif;;
+  font-size: 28px;
+  display: block;
+  width: 100%;
+  text-shadow: 1px 1px 0px #b35044;
+  font-style: italic;
+}
+
+#flash_message #flash_notice {
+  background-color: rgb(125,205,196);
+  background-color: rgba(125,205,196, 0.8);
+}

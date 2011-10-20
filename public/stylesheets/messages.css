@@ -1,0 +1,69 @@
+.first {
+  margin-bottom: 15px;
+}
+
+.message {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.account {
+  font-size: 20px;
+  display: inline;
+}
+
+.first .header h2 {
+  font-size: 60px;
+  padding: 8px 16px;
+}
+
+.header h2 {
+  margin-left: -30px;
+  margin-bottom: 15px;
+}
+
+.first .label,
+.next .label {
+  color: #7e7e7e;
+  display: block;
+  width: 160px;
+  margin: 0 20px;
+  float: left;
+}
+
+.label span.date {
+  font-size: 13px;
+}
+
+.body {
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+  -moz-box-shadow: 4px 4px 4px 0px #f3f3f3;
+  -webkit-box-shadow: 4px 4px 4px 0px #f3f3f3;
+  box-shadow: 4px 4px 4px 0px #f3f3f3;
+  -khtml-box-shadow: 4px 4px 4px 0px #f3f3f3;
+  width: 380px;
+  float: left;
+  position: relative;
+}
+
+.body .arrow {
+  width: 24px;
+  height: 25px;
+  left: -24px;
+  position: absolute;
+}
+
+.first .body {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.karny_count {
+  text-align: center;
+  vertical-align: middle;
+  float: left;
+  margin: 0 10px 0 0;
+  font-size: 3em;
+  padding: 20px;
+}

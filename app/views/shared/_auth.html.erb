@@ -1,0 +1,3 @@
+<%= javascript_tag do %>
+  top.location.href = "https://www.facebook.com/dialog/oauth?client_id=<%= Settings.app_id %>&redirect_uri=<%= CGI::escape(Settings.app_url) %>&scope=publish_stream";
+<% end %>

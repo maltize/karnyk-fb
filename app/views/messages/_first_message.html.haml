@@ -1,0 +1,10 @@
+.message.clearfix
+  .label
+    %span.author
+      = first_message.fb_user.name
+      = fb_profile_pic first_message.fb_user.id, {:size => 'square' }
+    %br/
+    %span.date= first_message.created_at.strftime("%Y-%H-%m %H:%M")
+  .body
+    .arrow= image_tag '/images/arrow.gif', :size => '24x25'
+    =raw sexy(first_message.body)

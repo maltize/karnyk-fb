@@ -1,0 +1,9 @@
+- if @message
+  .first.clearfix
+    .header.clearfix
+      %h2
+        = '#'
+        = @messages_count
+    = render :partial => 'messages/first_message', :collection => [@message]
+  .next.clearfix= render :partial => 'messages/next_message', :collection => @messages
+  = will_paginate @messages

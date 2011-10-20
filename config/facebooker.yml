@@ -1,0 +1,11 @@
+development:
+  app_id: 117793468245528
+  secret: efe27d89e0b5b5769df50072face0e78
+
+test:
+  app_id: 117793468245528
+  secret: efe27d89e0b5b5769df50072face0e78
+
+production:
+  app_id: 117793468245528
+  secret: efe27d89e0b5b5769df50072face0e78
