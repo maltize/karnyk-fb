@@ -1,7 +1,7 @@
 # encoding: utf-8
 class MessagesController < ApplicationController
 
-  before_filter :load_friends, :only => [:show, :new]
+  before_filter :load_friends, :only => [:show, :new, :create]
 
   def login
   end
