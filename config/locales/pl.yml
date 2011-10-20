@@ -149,9 +149,8 @@ pl:
       message: "Karny kutas"
     attributes:
       message:
-        name: "Od kogo"
-        target_name: "Dla kogo"
-        target_email: "E-mail"
+        fb_user_id: "Od kogo"
+        target_fb_user_id: "Dla kogo"
         body: "Za co"
 
   support:

@@ -11,4 +11,11 @@ class MessageTest < ActiveSupport::TestCase
     assert messages(:one).valid?
   end
 
+  def test_validate_target_fb_user
+    messages(:one).target_fb_user_id = 0
+
+    assert !messages(:one).valid?
+    assert messages(:one).errors[:target_fb_user_id]
+  end
+
 end
